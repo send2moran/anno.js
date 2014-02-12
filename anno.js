@@ -121,10 +121,10 @@ Anno = (function() {
         return _this._annoElem.removeClass('anno-hidden');
       };
     })(this)), 10);
-    $target.scrollintoview();
+    $target.scrollIntoView();
     setTimeout(((function(_this) {
       return function() {
-        return _this._annoElem.scrollintoview();
+        return _this._annoElem.scrollIntoView();
       };
     })(this)), 300);
     if (this.rightArrowClicksLastButton) {
@@ -309,10 +309,6 @@ Anno = (function() {
     if ($target.attr('style') != null) {
       _oldTargetCSS = $target.attr('style');
     }
-    $target.closest(':scrollable').on('mousewheel', function(evt) {
-      evt.preventDefault();
-      return evt.stopPropagation();
-    });
     if ($target.css('position') === 'static') {
       $target.after(this._placeholder = $target.clone().addClass('anno-placeholder'));
       $target.css({

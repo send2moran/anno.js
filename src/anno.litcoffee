@@ -358,9 +358,9 @@ Semi-transparent overlay and other effects
       emphasiseTarget: ($target = @targetFn()) ->
         if $target.attr('style')? then _oldTargetCSS = $target.attr('style')
 
-        $target.closest(':scrollable').on 'mousewheel', (evt) ->  # TODO: register & remove a specific listener ... would this ruin existing jQuery scroll functions?
-          evt.preventDefault()
-          evt.stopPropagation()
+        #$target.closest(':scrollable').on 'mousewheel', (evt) ->  # TODO: register & remove a specific listener ... would this ruin existing jQuery scroll functions?
+          #evt.preventDefault()
+          #evt.stopPropagation()
 
         if $target.css('position')  is 'static'
           $target.after(@_placeholder = $target.clone().addClass('anno-placeholder')) # ensures that the jquery :first selector in targetFn works.
@@ -391,7 +391,7 @@ Semi-transparent overlay and other effects
       deemphasiseTarget: () ->
         @_placeholder?.remove()
         $target = @targetFn()
-        $target.closest(':scrollable').off('mousewheel')
+        #$target.closest(':scrollable').off('mousewheel')
         return $target.attr('style',@_oldTargetCSS)
 
 
